@@ -1,6 +1,6 @@
 # Timbiriche (Dots and Boxes)
 
-![Captura de tela do jogo](./screenshot.png)
+![Captura de tela do jogo](./screenshot.jpg)
 
 ## Project Setup
 
