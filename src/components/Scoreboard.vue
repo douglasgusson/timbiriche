@@ -17,7 +17,7 @@ const { currentPlayer, playerA, playerB } = storeToRefs(game);
     </span>
   </div>
   <div>
-    É a ver do
+    É a vez do
     <strong class="player-name">{{ currentPlayer.name }}</strong>
   </div>
 </template>
