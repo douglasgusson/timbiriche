@@ -1,0 +1,47 @@
+:root {
+  --color-bg-dark: #262626;
+  --color-text-dark: #f2f2f2;
+
+  --color-bg-light: #f2f2f2;
+  --color-text-light: #262626;
+
+  --color-primary: #66bcf2;
+  --color-secondary: #f2accd;
+  --color-tertiary: #55d066;
+}
+
+:root {
+  --color-background: var(--color-bg-light);
+  --color-text: var(--color-text-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-bg-dark);
+    --color-text: var(--color-text-dark);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
