@@ -6,6 +6,7 @@ import LineComponent from "./LineComponent.vue";
 import type Box from "@/models/Box";
 import type Line from "@/models/Line";
 import { useGameStore } from "@/stores/game";
+import Marker from "./Marker.vue";
 
 const props = defineProps<{
   rows: number;
@@ -131,43 +132,25 @@ onMounted(() => {
         fill="var(--color-tertiary)"
       />
     </g>
-    <g id="merkers">
-      <template
-        v-for="(boxMarked, i) in playerA.boxes"
-        :key="`box_marked_player_a_${i}`"
-      >
-        <circle
-          :cx="boxMarked.initialPoint.x * scale + scale / 2"
-          :cy="boxMarked.initialPoint.y * scale + scale / 2"
-          :r="scale / 3"
-          :fill="playerA.color"
+    <g id="markers">
+      <g id="player-a">
+        <Marker
+          v-for="(boxMarked, i) in playerA.boxes"
+          :key="`box_marked_player_a_${i}`"
+          :box="boxMarked"
+          :fillColor="playerA.color"
+          :textContent="playerA.id"
         />
-        <text
-          :x="boxMarked.initialPoint.x * scale + scale / 2"
-          :y="boxMarked.initialPoint.y * scale + scale / 2"
-          fill="white"
-        >
-          A
-        </text>
-      </template>
-      <template
-        v-for="(boxMarked, i) in playerB.boxes"
-        :key="`box_marked_player_b_${i}`"
-      >
-        <circle
-          :cx="boxMarked.initialPoint.x * scale + scale / 2"
-          :cy="boxMarked.initialPoint.y * scale + scale / 2"
-          :r="scale / 3"
-          :fill="playerB.color"
+      </g>
+      <g id="player-b">
+        <Marker
+          v-for="(boxMarked, i) in playerB.boxes"
+          :key="`box_marked_player_b_${i}`"
+          :box="boxMarked"
+          :fillColor="playerB.color"
+          :textContent="playerB.id"
         />
-        <text
-          :x="boxMarked.initialPoint.x * scale + scale / 2"
-          :y="boxMarked.initialPoint.y * scale + scale / 2"
-          fill="white"
-        >
-          B
-        </text>
-      </template>
+      </g>
     </g>
   </svg>
 </template>
