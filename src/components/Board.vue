@@ -2,10 +2,10 @@
 import { onMounted, ref, computed } from "vue";
 import { storeToRefs } from "pinia";
 import type Point from "@/models/Point";
-import LineComponent from "./LineComponent.vue";
 import type Box from "@/models/Box";
 import type Line from "@/models/Line";
 import { useGameStore } from "@/stores/game";
+import { useScale } from "@/composables/scale";
 import Marker from "./Marker.vue";
 import LineComponent from "./LineComponent.vue";
 
@@ -14,12 +14,13 @@ const props = defineProps<{
   columns: number;
 }>();
 
-const scale = ref(50);
 const points = ref<Point[]>([]);
 const lines = ref<Line[]>([]);
 const boxes = ref<Box[]>([]);
 const boxesMarked = ref<Box[]>([]);
 const linesMarked = ref<Line[]>([]);
+
+const { scale } = useScale();
 
 const gameStore = useGameStore();
 const { playerA, playerB, currentPlayer } = storeToRefs(gameStore);
