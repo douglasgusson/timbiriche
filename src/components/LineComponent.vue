@@ -3,13 +3,14 @@ import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import type Point from "@/models/Point";
 import { useGameStore } from "@/stores/game";
+import { useScale } from "@/composables/scale";
 
 const props = defineProps<{
   a: Point;
   b: Point;
-  scale: number;
 }>();
 
+const { scale } = useScale();
 const clicked = ref(false);
 const emit = defineEmits(["marked"]);
 
@@ -32,14 +33,15 @@ const onClick = () => {
     :x2="b.x * scale"
     :y1="a.y * scale"
     :y2="b.y * scale"
-    :stroke-width="scale * 0.1"
+    :stroke-width="scale * 0.15"
+    stroke-linecap="round"
   />
 </template>
 
 <style scoped>
 .line {
   stroke: var(--color-text);
-  opacity: 0.2;
+  opacity: 0.08;
   cursor: pointer;
   transition: 0.4s;
 }

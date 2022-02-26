@@ -7,6 +7,7 @@ import type Box from "@/models/Box";
 import type Line from "@/models/Line";
 import { useGameStore } from "@/stores/game";
 import Marker from "./Marker.vue";
+import LineComponent from "./LineComponent.vue";
 
 const props = defineProps<{
   rows: number;
@@ -119,7 +120,6 @@ onMounted(() => {
         :a="line.a"
         :b="line.b"
         @marked="onLineMarked"
-        :scale="scale"
       />
     </g>
     <g id="points">
