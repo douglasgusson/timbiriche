@@ -129,7 +129,7 @@ onMounted(() => {
         :key="`point_${i}`"
         :cx="point.x * scale"
         :cy="point.y * scale"
-        :r="scale * 0.15"
+        :r="scale * 0.1"
         fill="var(--color-tertiary)"
       />
     </g>
